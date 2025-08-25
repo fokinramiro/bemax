@@ -1,0 +1,409 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Estilo global */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #160e46;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Mensajes dinámicos */
+#message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 999;
+  display: none;
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+#message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+#message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Efecto difuminado cuando Baymax hable */
+#mensaje {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(to top, #91dcff 0%, transparent 100%);
+  z-index: -1;
+  display: none;
+  animation: fadeInOut 4s ease-in-out forwards;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2rem;
+  color: #91dcff;
+  margin-bottom: 20px;
+}
+
+/* Botones */
+button {
+  padding: 12px;
+  background-color: #91dcff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+button:hover {
+  background-color: #7cb2cc;
+  transform: scale(1.05);
+}
+
+/* Enlaces */
+a {
+  color: #91dcff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.95rem;
+  text-align: left;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 2px solid #444;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #f1f1f1;
+  color: #111;
+  transition: border-color 0.2s;
+}
+input:focus {
+  border-color: #91dcff;
+  outline: none;
+}
+
+/* Contenedores */
+.form-container,
+.login-container,
+.register-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* Páginas */
+.login-page,
+.register-page,
+.baymax-page {
+  background-color: #160e46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Textos secundarios */
+.login-container p,
+.register-container p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Cámara */
+video {
+  border: 3px solid #444;
+  border-radius: 8px;
+  width: 340px;
+  height: 260px;
+  transform: rotateY(180deg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.error-text::before {
+  content: "⚠️ ";
+}
+
+.error-text {
+  color: #ff4d4f;
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-top: 4px;
+  display: none;
+  animation: fadein 0.3s ease-in-out;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #222;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  z-index: 999;
+}
+
+.chat-messages {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.chat-input-group {
+  display: flex;
+  gap: 5px;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+/* Contenedor video + canvas */
+#video-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 900;
+  width: 340px;
+  height: 260px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(145, 220, 255, 0.6);
+  overflow: hidden;
+  background-color: #0d0a2a; /* azul oscuro para que destaque */
+}
+
+/* Video */
+#video {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px;
+  transform: rotateY(180deg);
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(145, 220, 255, 0.8);
+}
+
+/* Canvas face-api overlay */
+canvas {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  border-radius: 8px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
+}
+
+/* Mensaje hablado (#mensaje) */
+#mensaje {
+  position: fixed;
+  bottom: 290px; /* justo encima del video */
+  left: 20px;
+  width: 340px;
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #6ab7ffcc 0%, #91dcff66 100%);
+  border-radius: 10px;
+  color: #001f4d;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 0 15px #6ab7ffbb;
+  z-index: 950;
+  display: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Botones */
+.botones {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 1100;
+}
+
+.botones button {
+  padding: 12px 25px;
+  background-color: #91dcff;
+  color: #0a2351;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px #46a1ffaa;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.botones button:hover {
+  background-color: #6ab7ff;
+  box-shadow: 0 7px 14px #3a85f7dd;
+  transform: translateY(-2px);
+}
+
+/* Chat ajustado */
+#chatbox {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: 320px !important;
+  max-height: 400px !important;
+  background-color: #111b2b !important;
+  border-radius: 15px !important;
+  padding: 15px !important;
+  box-shadow: 0 0 25px #2993ffaa !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: white !important;
+  display: flex !important;
+  flex-direction: column !important;
+  z-index: 1000 !important;
+}
+
+#chatbox .chat-messages {
+  max-height: 280px !important;
+  overflow-y: auto !important;
+  margin-bottom: 15px !important;
+  padding-right: 8px !important;
+  word-break: break-word;
+}
+
+#chatbox .chat-input-group {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+#chat-input {
+  flex: 1 !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  font-size: 1rem !important;
+  outline: none !important;
+  background-color: #20304f !important;
+  color: white !important;
+  box-shadow: inset 0 0 10px #1a2a48;
+  transition: background-color 0.3s ease;
+}
+
+#chat-input::placeholder {
+  color: #7999c4 !important;
+}
+
+#chat-input:focus {
+  background-color: #2e466c !important;
+}
+
+#chatbox .chat-input-group button {
+  padding: 10px 18px !important;
+  background-color: #2993ff !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  border-radius: 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+  box-shadow: 0 5px 15px #2993ffbb !important;
+  transition: background-color 0.25s ease;
+}
+#chatbox .chat-input-group button:hover {
+  background-color: #1e6fd6 !important;
+  box-shadow: 0 7px 20px #1e6fd6cc !important;
+}
+#video-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 900;
+  width: 340px;
+  height: 260px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(145, 220, 255, 0.6);
+  overflow: hidden;
+  background-color: #0d0a2a; /* azul oscuro para que destaque */
+}
+
+#video-container video,
+#video-container canvas {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px;
+  transform: rotateY(180deg);
+  object-fit: cover;
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(145, 220, 255, 0.8);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
+}
+
+/* Mensaje hablado (#mensaje) */
+#mensaje {
+  position: fixed;
+  bottom: 290px; /* justo encima del video */
+  left: 20px;
+  width: 340px;
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #6ab7ffcc 0%, #91dcff66 100%);
+  border-radius: 10px;
+  color: #001f4d;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 0 15px #6ab7ffbb;
+  z-index: 950;
+  display: none;
+  user-select: none;
+  pointer-events: none;
+}
+

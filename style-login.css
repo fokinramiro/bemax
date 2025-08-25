@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f8fc;
+  color: #2c2c2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+.login-container {
+  background-color: #ffffff;
+  padding: 35px 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* Título */
+h1 {
+  font-size: 2rem;
+  color: #e76f51;
+  margin-bottom: 20px;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.95rem;
+  text-align: left;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 2px solid #dcdde1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #2c2c2c;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #6c91bf;
+  box-shadow: 0 0 0 2px rgba(108, 145, 191, 0.3);
+  outline: none;
+}
+
+/* Botón */
+button {
+  padding: 12px;
+  background-color: #e76f51;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d65f45;
+  transform: scale(1.05);
+}
+
+/* Enlace */
+a {
+  color: #6c91bf;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.login-container p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Mensaje flotante */
+#message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 999;
+  display: none;
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+#message.success {
+  background-color: #77dd77;
+  color: #1d4c1d;
+}
+
+#message.error {
+  background-color: #ffe29a;
+  color: #664d03;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Errores */
+.error-text::before {
+  content: "⚠️ ";
+}
+
+.error-text {
+  color: #e63946;
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-top: 4px;
+  display: none;
+  animation: fadein 0.3s ease-in-out;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}

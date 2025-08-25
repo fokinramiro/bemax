@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Baymax Reconocimiento Facial</title>
+  <!-- Librería face-api.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <!-- Tu script principal -->
+  <script defer src="./app.js"></script>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./style-bmax.css" />
+</head>
+<body>
+  <!-- Fondo 3D con Spline -->
+  <div id="spline-container">
+    <iframe 
+      src="https://my.spline.design/untitled-xIWyT4dEcxZGFmY5zB5PUNdk/" 
+      frameborder="0" 
+      width="100%" 
+      height="100%">
+    </iframe>
+  </div>
+
+  <!-- Video de la cámara -->
+  <video id="video" autoplay muted></video>
+
+  <!-- Mensaje flotante -->
+  <div id="mensaje"></div>
+
+  <!-- Botones de control -->
+  <div class="botones">
+    <button onclick="toggleVistaCamara()">Ocultar/Mostrar Vista</button>
+    <button onclick="toggleCamaraActiva()">Encender/Apagar Cámara</button>
+  </div>
+</body>
+</html>
